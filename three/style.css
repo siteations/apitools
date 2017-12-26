@@ -1,0 +1,101 @@
+@font-face {font-family: 'Reina36Standard';src: url('./fonts/35701A_0_0.eot');src: url('./fonts/35701A_0_0.eot?#iefix') format('embedded-opentype'),url('./fonts/35701A_0_0.woff2') format('woff2'),url('./fonts/35701A_0_0.woff') format('woff'),url('./fonts/35701A_0_0.ttf') format('truetype');}
+
+
+@font-face {font-family: 'Trenda';font-weight: bold;font-style: italic;src: url('./fonts/35701A_1_0.eot');src: url('./fonts/35701A_1_0.eot?#iefix') format('embedded-opentype'),url('./fonts/35701A_1_0.woff2') format('woff2'),url('./fonts/35701A_1_0.woff') format('woff'),url('./fonts/35701A_1_0.ttf') format('truetype');}
+
+
+@font-face {font-family: 'Trenda';font-weight: bold;font-style: normal;src: url('./fonts/35701A_2_0.eot');src: url('./fonts/35701A_2_0.eot?#iefix') format('embedded-opentype'),url('./fonts/35701A_2_0.woff2') format('woff2'),url('./fonts/35701A_2_0.woff') format('woff'),url('./fonts/35701A_2_0.ttf') format('truetype');}
+
+
+@font-face {font-family: 'Trenda';font-weight: normal;font-style: normal;src: url('./fonts/35701A_3_0.eot');src: url('./fonts/35701A_3_0.eot?#iefix') format('embedded-opentype'),url('./fonts/35701A_3_0.woff2') format('woff2'),url('./fonts/35701A_3_0.woff') format('woff'),url('./fonts/35701A_3_0.ttf') format('truetype');}
+
+
+@font-face {font-family: 'Trenda';font-weight: normal;font-style: italic;src: url('./fonts/35701A_4_0.eot');src: url('./fonts/35701A_4_0.eot?#iefix') format('embedded-opentype'),url('./fonts/35701A_4_0.woff2') format('woff2'),url('./fonts/35701A_4_0.woff') format('woff'),url('./fonts/35701A_4_0.ttf') format('truetype');}
+
+body {
+	font-family: 'Trenda';
+	color: #494948;
+	overflow: hidden;
+}
+
+
+a {
+	font-family: 'Trenda';
+	color: #494948;
+	text-decoration: none;
+}
+
+canvas { width: 100%; height: 100% }
+
+.Reina {
+	font-family: 'Reina36Standard';
+}
+.Trenda {
+	font-family: 'Trenda';
+}
+.p12 {
+	font-size: 12pt;
+}
+.p8 {
+	font-size: 8pt;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+.bi {
+	font-size: 12pt;
+	font-weight: bold;
+	font-style: italic;
+}
+
+
+.top {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 50;
+	display:block;
+	font-family: 'Reina36Standard';
+	font-size: 18pt;
+	line-height: 24pt;
+	color: #2b261a;
+	background-color: #ffffff;
+}
+
+.links {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 50;
+	display:block;
+	font-family: 'Trenda';
+	font-size: 10pt;
+	color: #2b261a;
+	background-color: #ffffff;
+	line-height: 21pt;
+}
+
+.info {
+	position: absolute;
+	top: 10px;
+	text-align: center;
+	cursor: pointer;
+	z-index: 25;
+	display:block;
+	font-family: 'Reina36Standard';
+	font-size: 12pt;
+	color: #2b261a;
+}
+
