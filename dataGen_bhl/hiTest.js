@@ -1,0 +1,1 @@
+var catalogs=[]; module.exports.catalogs = catalogs

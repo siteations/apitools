@@ -26,6 +26,8 @@ var vertical = new THREE.Vector3( 0, 1, 0 );
 var rad = 0, hi = 1000, ephemRad = 0;
 var contents={}; // state:{center:coordinates, label: coordinates} ;
 var co = [];
+var count = 0;
+var countImg = 0;
 
 var sY = 750;
 var sX = -1800;
@@ -38,7 +40,7 @@ for (var i=0; i<51; i++){
 	// if (i===49){sX=0};
 	if (i%13===0){sY-= 300};
 
-	console.log([sX+300*(i-xAdds), sY, 0], sX, xAdds, i);
+	//console.log([sX+300*(i-xAdds), sY, 0], sX, xAdds, i);
 	co.push([sX+300*(i-xAdds), sY, 0]);
 }
 
@@ -120,16 +122,11 @@ function init() {
 		directionalLight.position.set( 0,0,4);
 		// directionalLight.castShadow = true;
 		scene.add( directionalLight );
-		console.log(directionalLight);
+		//console.log(directionalLight);
 
-		// directionalLight.shadow.mapSize.width = 4000;  // default
-		// directionalLight.shadow.mapSize.height = 4000; // default
-		// directionalLight.shadow.camera.near = 0.5;       // default
-		// directionalLight.shadow.camera.far = 1000;      // default
-	// }
 
 	//--------------------------re-used elements-----------------
-	tree = new THREE.TextureLoader().load( "../trees/fir.jpg" );
+	tree = new THREE.TextureLoader().load( "./trees/fir.jpg" );
 
 for (var state in contents){
 	//var state = 'Virginia';
@@ -154,6 +151,7 @@ for (var state in contents){
 		if (contents[state].data !== undefined){
 			createTree(vaCoords, dataArr);
 		}
+		console.log('catalogs count: ', count, countImg );
 }
 //
 
@@ -170,6 +168,9 @@ for (var state in contents){
 	plane = new THREE.Mesh( geometry, planeMaterial );
 	// plane.receiveShadow = true;
 	scene.add( plane );
+
+	document.getElementById('terrain').style.display = "block";
+	document.getElementById('loader').style.display = "none";
 
 
 
@@ -435,7 +436,7 @@ function createTree(vaCoords, itemArr){
 		var img;
 		//(item.pages)? img = item.pages.map(pg=>new THREE.TextureLoader().load(pg.img)): img = null;
 		(item.pages)? img = item.pages.map(pg=>pg.img): img = null;
-
+		(item.pages)? countImg += item.pages.length:  countImg += 0;
 		var each = !(item.pages);
 
 		var material = new THREE.MeshLambertMaterial( { color: (each)? ornaments[Math.ceil(Math.random()*3)] :colors[Math.ceil(Math.random()*11)], map: (each)? null : tree} );
@@ -450,6 +451,7 @@ function createTree(vaCoords, itemArr){
 		sphere.titles = ({title:item.title, a: item.url, date: item.date, place: item.place, states: (each)? [] :item.states, types: (each)? [] :item.trees })
 		scene.add( sphere );
 		objects.push( sphere );
+		count ++;
 	})
 
 	var geobase = new THREE.CircleGeometry( vaCoords.radTr-4, 64 );
@@ -463,4 +465,5 @@ function createTree(vaCoords, itemArr){
 		treeBase.name = 'base-'+'state';
 		scene.add( treeBase );
 		objects.push( treeBase );
+		// document.getElementById('loaderText').innerText = count + ' catalogs';
 }
